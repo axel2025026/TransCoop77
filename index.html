@@ -158,6 +158,7 @@
                             <div class="file-input">
                                 <input type="file" id="audio-file" accept="audio/*">
                                 <label for="audio-file" class="btn-primary">Seleccionar Archivo</label>
+                                <span id="file-name" class="file-name"></span>
                             </div>
                         </div>
                     </div>
@@ -225,7 +226,7 @@
                 <div class="library-container">
                     <div class="library-controls">
                         <div class="search-box">
-                            <input type="text" placeholder="Buscar partituras...">
+                            <input type="text" id="library-search" placeholder="Buscar partituras...">
                             <i class="fas fa-search"></i>
                         </div>
                         <div class="filter-options">
@@ -246,43 +247,8 @@
                         </div>
                     </div>
                     
-                    <div class="library-grid">
-                        <div class="library-item">
-                            <div class="item-header">
-                                <h4>Come As You Are</h4>
-                                <span class="item-badge">Guardada</span>
-                            </div>
-                            <p class="item-artist">Nirvana</p>
-                            <div class="item-instruments">
-                                <span class="instrument-tag">Guitarra</span>
-                                <span class="instrument-tag">Bajo</span>
-                                <span class="instrument-tag">Batería</span>
-                            </div>
-                            <div class="item-actions">
-                                <button class="btn-primary">Abrir</button>
-                                <button class="btn-secondary">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="library-item">
-                            <div class="item-header">
-                                <h4>Smells Like Teen Spirit</h4>
-                                <span class="item-badge">Guardada</span>
-                            </div>
-                            <p class="item-artist">Nirvana</p>
-                            <div class="item-instruments">
-                                <span class="instrument-tag">Guitarra</span>
-                                <span class="instrument-tag">Batería</span>
-                            </div>
-                            <div class="item-actions">
-                                <button class="btn-primary">Abrir</button>
-                                <button class="btn-secondary">
-                                    <i class="fas fa-download"></i>
-                                </button>
-                            </div>
-                        </div>
+                    <div class="library-grid" id="library-grid">
+                        <!-- Las partituras de la biblioteca se cargarán aquí -->
                     </div>
                 </div>
             </section>
@@ -310,6 +276,12 @@
                                 <button id="metronome-toggle" class="btn-primary">
                                     <i class="fas fa-play"></i> Iniciar
                                 </button>
+                                <div class="beat-indicator">
+                                    <div class="beat active"></div>
+                                    <div class="beat"></div>
+                                    <div class="beat"></div>
+                                    <div class="beat"></div>
+                                </div>
                             </div>
                         </div>
                         
@@ -326,6 +298,7 @@
                                     <div class="tuner-indicator">
                                         <div class="indicator-bar"></div>
                                     </div>
+                                    <div class="tuner-accuracy">+0 céntimos</div>
                                 </div>
                                 <button id="tuner-toggle" class="btn-primary">
                                     <i class="fas fa-microphone"></i> Iniciar Afinador
@@ -341,13 +314,21 @@
                             <p>Practica patrones rítmicos</p>
                             <div class="rhythm-trainer">
                                 <div class="rhythm-patterns">
-                                    <div class="pattern active">4/4 Básico</div>
-                                    <div class="pattern">Rock</div>
-                                    <div class="pattern">Funk</div>
+                                    <div class="pattern active" data-pattern="basic">4/4 Básico</div>
+                                    <div class="pattern" data-pattern="rock">Rock</div>
+                                    <div class="pattern" data-pattern="funk">Funk</div>
                                 </div>
                                 <button id="rhythm-toggle" class="btn-primary">
                                     <i class="fas fa-play"></i> Practicar
                                 </button>
+                                <div class="rhythm-display">
+                                    <div class="rhythm-visualizer">
+                                        <div class="beat-visual"></div>
+                                        <div class="beat-visual"></div>
+                                        <div class="beat-visual"></div>
+                                        <div class="beat-visual"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -356,7 +337,6 @@
 
             <!-- Sección de Comunidad -->
             <section id="comunidad" class="content-section">
-                <!-- Contenido existente de comunidad -->
                 <div class="section-header">
                     <h2>Comunidad Musical</h2>
                     <p>Comparte, pregunta y aprende con otros músicos</p>
@@ -368,12 +348,12 @@
                             <i class="fas fa-plus"></i> Nuevo Mensaje
                         </button>
                         <div class="search-box">
-                            <input type="text" placeholder="Buscar en el foro...">
+                            <input type="text" id="forum-search" placeholder="Buscar en el foro...">
                             <i class="fas fa-search"></i>
                         </div>
                     </div>
                     
-                    <div class="posts-container">
+                    <div class="posts-container" id="posts-container">
                         <!-- Los mensajes del foro se cargarán aquí -->
                     </div>
                 </div>
@@ -427,7 +407,6 @@
 
             <!-- Sección de Proyectos -->
             <section id="proyectos" class="content-section">
-                <!-- Contenido existente de proyectos -->
                 <div class="section-header">
                     <h2>Proyectos Musicales</h2>
                     <p>Descubre y comparte composiciones originales</p>
@@ -453,7 +432,7 @@
                         </div>
                     </div>
                     
-                    <div class="projects-grid">
+                    <div class="projects-grid" id="projects-grid">
                         <!-- Los proyectos se cargarán aquí -->
                     </div>
                 </div>
@@ -492,6 +471,7 @@
                                 <div class="form-group">
                                     <label for="project-file">Archivo de Audio</label>
                                     <input type="file" id="project-file" accept="audio/*" required>
+                                    <span id="project-file-name" class="file-name"></span>
                                 </div>
                                 <div class="form-actions">
                                     <button type="button" class="btn-secondary close-modal">Cancelar</button>
@@ -511,58 +491,14 @@
                 </div>
                 
                 <div class="courses-container">
-                    <div class="courses-grid">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <i class="fas fa-guitar"></i>
-                            </div>
-                            <div class="course-info">
-                                <h3>Guitarra para Principiantes</h3>
-                                <p>Aprende acordes, ritmos y técnicas básicas</p>
-                                <div class="course-meta">
-                                    <span class="course-level">Principiante</span>
-                                    <span class="course-duration">12 lecciones</span>
-                                </div>
-                                <button class="btn-primary">Comenzar Curso</button>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <div class="course-info">
-                                <h3>Teoría Musical Esencial</h3>
-                                <p>Domina escalas, acordes y progresiones</p>
-                                <div class="course-meta">
-                                    <span class="course-level">Intermedio</span>
-                                    <span class="course-duration">8 lecciones</span>
-                                </div>
-                                <button class="btn-primary">Comenzar Curso</button>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <i class="fas fa-drum"></i>
-                            </div>
-                            <div class="course-info">
-                                <h3>Batería: Ritmos de Rock</h3>
-                                <p>Patrones esenciales para bateristas</p>
-                                <div class="course-meta">
-                                    <span class="course-level">Principiante</span>
-                                    <span class="course-duration">10 lecciones</span>
-                                </div>
-                                <button class="btn-primary">Comenzar Curso</button>
-                            </div>
-                        </div>
+                    <div class="courses-grid" id="courses-grid">
+                        <!-- Los cursos se cargarán aquí -->
                     </div>
                 </div>
             </section>
 
             <!-- Sección de Ranking -->
             <section id="ranking" class="content-section">
-                <!-- Contenido existente de ranking -->
                 <div class="section-header">
                     <h2>Músicas Más Buscadas</h2>
                     <p>Descubre las canciones más populares en TransCoope</p>
@@ -575,7 +511,7 @@
                         <button class="ranking-tab" data-ranking="alltime">Todos los Tiempos</button>
                     </div>
                     
-                    <div class="ranking-list">
+                    <div class="ranking-list" id="ranking-list">
                         <!-- El ranking se cargará aquí -->
                     </div>
                 </div>
@@ -583,7 +519,6 @@
 
             <!-- Sección de Recomendaciones -->
             <section id="recomendaciones" class="content-section">
-                <!-- Contenido existente de recomendaciones -->
                 <div class="section-header">
                     <h2>Recomendaciones Personalizadas</h2>
                     <p>Contenido seleccionado según tus gustos musicales</p>
@@ -592,7 +527,7 @@
                 <div class="recommendations-container">
                     <div class="user-genres">
                         <h3>Tus géneros favoritos</h3>
-                        <div class="genres-list">
+                        <div class="genres-list" id="user-genres-list">
                             <!-- Los géneros del usuario se cargarán aquí -->
                         </div>
                     </div>
@@ -600,21 +535,21 @@
                     <div class="recommendations-grid">
                         <div class="recommendation-section">
                             <h3>Partituras que te pueden interesar</h3>
-                            <div class="recommendation-cards">
+                            <div class="recommendation-cards" id="recommended-sheets">
                                 <!-- Las partituras recomendadas se cargarán aquí -->
                             </div>
                         </div>
                         
                         <div class="recommendation-section">
                             <h3>Proyectos de la comunidad</h3>
-                            <div class="recommendation-cards">
+                            <div class="recommendation-cards" id="recommended-projects">
                                 <!-- Los proyectos recomendados se cargarán aquí -->
                             </div>
                         </div>
                         
                         <div class="recommendation-section">
                             <h3>Discusiones del foro</h3>
-                            <div class="recommendation-cards">
+                            <div class="recommendation-cards" id="recommended-posts">
                                 <!-- Las discusiones recomendadas se cargarán aquí -->
                             </div>
                         </div>
@@ -662,6 +597,9 @@
                     <div class="genres-list" id="profile-genres-list">
                         <!-- Géneros del usuario -->
                     </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-primary" id="edit-profile-btn">Editar Perfil</button>
                 </div>
             </div>
         </div>
