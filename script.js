@@ -1,4 +1,4 @@
-// script.js - TransCoope (Versión Mejorada)
+// script.js - TransCoope (Versión Completa Mejorada)
 document.addEventListener('DOMContentLoaded', function() {
     // Estado de la aplicación
     const appState = {
@@ -11,31 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         library: [],
         courses: [],
         practiceTools: {
-            metronome: { active: false, bpm: 120 },
+            metronome: { active: false, bpm: 120, interval: null },
             tuner: { active: false },
-            rhythm: { active: false }
+            rhythm: { active: false, pattern: 'basic', interval: null }
         },
         rankings: {
             weekly: [],
             monthly: [],
             alltime: []
         }
-    };
-
-    // Elementos DOM principales
-    const elements = {
-        loginScreen: document.getElementById('login-screen'),
-        registerScreen: document.getElementById('register-screen'),
-        appScreen: document.getElementById('app-screen'),
-        loginForm: document.getElementById('login-form'),
-        registerForm: document.getElementById('register-form'),
-        showRegister: document.getElementById('show-register'),
-        showLogin: document.getElementById('show-login'),
-        logoutBtn: document.getElementById('logout-btn'),
-        profileBtn: document.getElementById('profile-btn'),
-        navLinks: document.querySelectorAll('.nav-link'),
-        contentSections: document.querySelectorAll('.content-section'),
-        userName: document.getElementById('user-name')
     };
 
     // Partituras de ejemplo para "Come As You Are"
@@ -64,7 +48,7 @@ D|--4---4---2---2--|
 A|--4---4---2---2--|
 D|--4---4---2---2--|
 
-<span class="tab-note">// Repetir 4 veces</span>
+<span class="tab-note">// Repetir 4 veces - Toca con distorsión y palm mute</span>
                             </pre>
                         </div>
                         
@@ -78,7 +62,7 @@ D|--2---2---4---4------|
 A|--2---2---4---4------|
 D|--2---2---4---4------|
 
-<span class="tab-note">// Palabras: "Come as you are..."</span>
+<span class="tab-note">// "Come as you are, as you were..."</span>
                             </pre>
                         </div>
                         
@@ -93,15 +77,30 @@ A|--0---0---2---2---4----|
 D|--0---0---2---2---4----|
                             </pre>
                         </div>
+
+                        <div class="tab-section">
+                            <h5>Estribillo</h5>
+                            <pre class="guitar-tab">
+e|-------------------------|
+B|-------------------------|
+G|-------------------------|
+D|--4---4---2---2---0---0--|
+A|--4---4---2---2---0---0--|
+D|--4---4---2---2---0---0--|
+
+<span class="tab-note">// "And I swear that I don't have a gun..."</span>
+                            </pre>
+                        </div>
                     </div>
                     
                     <div class="playing-tips">
                         <h5>💡 Consejos de Ejecución:</h5>
                         <ul>
                             <li>Usa distorsión media con mucho sustain</li>
-                            <li>Palm mute en las notas graves</li>
+                            <li>Palm mute en las notas graves del riff</li>
                             <li>Mantén un tempo constante de 120 BPM</li>
-                            <li>El riff usa principalmente cuerdas graves</li>
+                            <li>El riff usa principalmente cuerdas graves (Drop D)</li>
+                            <li>Acordes power simples pero efectivos</li>
                         </ul>
                     </div>
                 </div>
@@ -129,19 +128,29 @@ D|-----------------|
 A|--2---2---4---4--|
 E|--2---2---4---4--|
 
-<span class="tab-note">// Sigue el riff de guitarra</span>
+<span class="tab-note">// Sigue el riff de guitarra nota por nota</span>
                             </pre>
                         </div>
                         
                         <div class="tab-section">
-                            <h5>Patrón Completo</h5>
+                            <h5>Patrón Completo del Verso</h5>
                             <pre class="bass-tab">
 G|---------------------|
 D|---------------------|
 A|--2-2-4-4-2-2-0-0---|
 E|--2-2-4-4-2-2-0-0---|
 
-<span class="tab-note">// Notas: Re - Mi - Re - Do</span>
+<span class="tab-note">// Notas: Re - Mi - Re - Do (en la cuerda A)</span>
+                            </pre>
+                        </div>
+
+                        <div class="tab-section">
+                            <h5>Variación del Estribillo</h5>
+                            <pre class="bass-tab">
+G|-------------------------|
+D|-------------------------|
+A|--4-4-2-2-0-0-4-4-2-2---|
+E|--4-4-2-2-0-0-4-4-2-2---|
                             </pre>
                         </div>
                     </div>
@@ -150,9 +159,10 @@ E|--2-2-4-4-2-2-0-0---|
                         <h5>💡 Técnica de Bajo:</h5>
                         <ul>
                             <li>Usa dedos (fingerstyle) para un sonido más orgánico</li>
-                            <li>Mantén las notas sostenidas</li>
+                            <li>Mantén las notas sostenidas con duración completa</li>
                             <li>Énfasis en el groove y el ritmo</li>
                             <li>Coordinación perfecta con la batería</li>
+                            <li>Tono con mucho medio y bajo, poco agudo</li>
                         </ul>
                     </div>
                 </div>
@@ -175,27 +185,41 @@ E|--2-2-4-4-2-2-0-0---|
                         <div class="notation-section">
                             <h5>Patrón Básico del Verso</h5>
                             <pre class="drum-tab">
-C|----------------|      SNARE|----x-------x---|
-H|--x-x-x-x-x-x-x-|      KICK |x-------x-------|
-R|----------------|      TOM1 |----------------|
+Hi-hat  | x x x x x x x x |
+Snare   | - - x - - - x - |
+Kick    | x - - - x - - - |
                             </pre>
                         </div>
                         
                         <div class="notation-section">
                             <h5>Patrón del Estribillo</h5>
                             <pre class="drum-tab">
-C|----------------|      SNARE|----x-------x---|
-H|--x-x-x-x-x-x-x-|      KICK |x---x---x---x---|
-R|----------------|      TOM1 |------------xxxx|
+Hi-hat  | x x x x x x x x |
+Snare   | - - x - - - x - |
+Kick    | x - x - x - x - |
+Crash   | x - - - - - - - |
                             </pre>
                         </div>
                         
                         <div class="notation-section">
-                            <h5>Fill de Transición</h5>
+                            <h5>Fill de Transición (Pre-Coro)</h5>
                             <pre class="drum-tab">
-C|----------------|      SNARE|----x-----------|
-H|----------------|      KICK |x---------------|
-R|--xxxx----------|      TOM1 |--------xxxx----|
+Hi-hat  | - - - - - - - - |
+Snare   | x x x x - - - - |
+Kick    | x - - - x - - - |
+Tom1    | - - - - x x x x |
+Crash   | - - - - x - - - |
+                            </pre>
+                        </div>
+
+                        <div class="notation-section">
+                            <h5>Fill Característico (Puente)</h5>
+                            <pre class="drum-tab">
+Hi-hat  | - - - - - - - - |
+Snare   | x - x - x x x x |
+Kick    | x x - x - - - - |
+Tom1    | - - - - x x x x |
+Crash   | x - - - - - - - |
                             </pre>
                         </div>
                     </div>
@@ -203,12 +227,13 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                     <div class="drum-legend">
                         <h5>Leyenda:</h5>
                         <ul>
-                            <li><strong>H:</strong> Hi-hat</li>
-                            <li><strong>SNARE:</strong> Caja</li>
-                            <li><strong>KICK:</strong> Bombo</li>
-                            <li><strong>TOM1:</strong> Tom de aire</li>
-                            <li><strong>C:</strong> Crash</li>
-                            <li><strong>R:</strong> Ride</li>
+                            <li><strong>x:</strong> Golpe</li>
+                            <li><strong>-:</strong> Silencio</li>
+                            <li><strong>Hi-hat:</strong> Charles cerrado</li>
+                            <li><strong>Snare:</strong> Caja</li>
+                            <li><strong>Kick:</strong> Bombo</li>
+                            <li><strong>Tom1:</strong> Tom de aire</li>
+                            <li><strong>Crash:</strong> Platillo crash</li>
                         </ul>
                     </div>
                     
@@ -217,8 +242,9 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                         <ul>
                             <li>Golpes potentes pero controlados</li>
                             <li>Hi-hat constante en corcheas</li>
-                            <li>Uso de toms para fills creativos</li>
+                            <li>Uso creativo de toms para fills</li>
                             <li>Dinámica: fuerte en estribillos, suave en versos</li>
+                            <li>Groove sólido y constante</li>
                         </ul>
                     </div>
                 </div>
@@ -248,17 +274,37 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                                 <span class="lyrics">As I want you to be</span>
                                 <span class="notes">Mi - Fa - Sol - La</span>
                             </div>
+                            <div class="vocal-line">
+                                <span class="lyrics">As a friend, as a friend</span>
+                                <span class="notes">Sol - Sol - Fa - Mi - Re</span>
+                            </div>
+                            <div class="vocal-line">
+                                <span class="lyrics">As an old enemy</span>
+                                <span class="notes">Mi - Fa - Sol - La - Sol</span>
+                            </div>
                         </div>
                         
                         <div class="vocal-section">
                             <h5>Estribillo</h5>
                             <div class="vocal-line">
                                 <span class="lyrics">And I swear that I don't have a gun</span>
-                                <span class="notes">La - Sol - Fa - Mi - Re - Do</span>
+                                <span class="notes">La - Sol - Fa - Mi - Re - Do - La</span>
                             </div>
                             <div class="vocal-line">
                                 <span class="lyrics">No, I don't have a gun</span>
-                                <span class="notes">Mi - Re - Do - La</span>
+                                <span class="notes">Mi - Re - Do - La - Sol</span>
+                            </div>
+                        </div>
+
+                        <div class="vocal-section">
+                            <h5>Segundo Verso</h5>
+                            <div class="vocal-line">
+                                <span class="lyrics">Come doused in mud, soaked in bleach</span>
+                                <span class="notes">Sol - Sol - Fa - Mi - Re - Mi</span>
+                            </div>
+                            <div class="vocal-line">
+                                <span class="lyrics">As I want you to be</span>
+                                <span class="notes">Mi - Fa - Sol - La</span>
                             </div>
                         </div>
                     </div>
@@ -269,7 +315,8 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                             <li>Voz rasposa característica del grunge</li>
                             <li>Dinámica: de susurro a gritos controlados</li>
                             <li>Fraseo relajado pero intenso</li>
-                            <li>Uso de vibrato natural</li>
+                            <li>Uso de vibrato natural y expresivo</li>
+                            <li>Énfasis en la letra y emoción</li>
                         </ul>
                     </div>
                     
@@ -304,94 +351,83 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
 
     function setupEventListeners() {
         // Navegación entre pantallas de login/registro
-        if (elements.showRegister) {
-            elements.showRegister.addEventListener('click', (e) => {
-                e.preventDefault();
-                showScreen('register');
-            });
-        }
+        document.getElementById('show-register').addEventListener('click', (e) => {
+            e.preventDefault();
+            showScreen('register');
+        });
 
-        if (elements.showLogin) {
-            elements.showLogin.addEventListener('click', (e) => {
-                e.preventDefault();
-                showScreen('login');
-            });
-        }
+        document.getElementById('show-login').addEventListener('click', (e) => {
+            e.preventDefault();
+            showScreen('login');
+        });
 
         // Formularios de login y registro
-        if (elements.loginForm) {
-            elements.loginForm.addEventListener('submit', handleLogin);
-        }
-
-        if (elements.registerForm) {
-            elements.registerForm.addEventListener('submit', handleRegister);
-        }
-
-        if (elements.logoutBtn) {
-            elements.logoutBtn.addEventListener('click', handleLogout);
-        }
-
-        if (elements.profileBtn) {
-            elements.profileBtn.addEventListener('click', showProfileModal);
-        }
+        document.getElementById('login-form').addEventListener('submit', handleLogin);
+        document.getElementById('register-form').addEventListener('submit', handleRegister);
+        document.getElementById('logout-btn').addEventListener('click', handleLogout);
+        document.getElementById('profile-btn').addEventListener('click', showProfileModal);
 
         // Navegación entre secciones
-        elements.navLinks.forEach(link => {
+        document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const section = e.target.getAttribute('data-section');
                 showSection(section);
                 
                 // Actualizar navegación
-                elements.navLinks.forEach(l => l.classList.remove('active'));
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                 e.target.classList.add('active');
             });
         });
 
         // Transcripción de audio
-        setupTranscriptionListeners();
-        
-        // Biblioteca
-        setupLibraryListeners();
-        
+        document.getElementById('process-url').addEventListener('click', processUrl);
+        document.getElementById('audio-file').addEventListener('change', handleFileSelect);
+        document.getElementById('download-pdf').addEventListener('click', downloadPdf);
+        document.getElementById('save-to-library').addEventListener('click', saveToLibrary);
+
         // Práctica
-        setupPracticeListeners();
-        
-        // Comunidad
-        setupCommunityListeners();
-        
-        // Proyectos
-        setupProjectsListeners();
-        
-        // Cursos
-        setupCoursesListeners();
-        
-        // Ranking
-        setupRankingListeners();
+        document.getElementById('metronome-toggle').addEventListener('click', toggleMetronome);
+        document.getElementById('bpm-slider').addEventListener('input', updateBPM);
+        document.getElementById('tuner-toggle').addEventListener('click', toggleTuner);
+        document.getElementById('rhythm-toggle').addEventListener('click', toggleRhythmTrainer);
 
-        // Cerrar modales al hacer clic fuera
-        setupModalListeners();
-    }
-
-    function setupModalListeners() {
-        // Cerrar modales al hacer clic fuera
-        window.addEventListener('click', (e) => {
-            const modals = document.querySelectorAll('.modal');
-            modals.forEach(modal => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
+        // Patrones de ritmo
+        document.querySelectorAll('.pattern').forEach(pattern => {
+            pattern.addEventListener('click', function() {
+                document.querySelectorAll('.pattern').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                appState.practiceTools.rhythm.pattern = this.getAttribute('data-pattern');
             });
         });
 
-        // Cerrar modales con botones de cerrar
+        // Comunidad
+        document.getElementById('new-post-btn').addEventListener('click', () => {
+            document.getElementById('new-post-modal').style.display = 'block';
+        });
+
+        document.getElementById('new-post-form').addEventListener('submit', handleNewPost);
+
+        // Proyectos
+        document.getElementById('upload-project-btn').addEventListener('click', () => {
+            document.getElementById('upload-project-modal').style.display = 'block';
+        });
+
+        document.getElementById('upload-project-form').addEventListener('submit', handleProjectUpload);
+        document.getElementById('project-file').addEventListener('change', handleProjectFileSelect);
+
+        // Cerrar modales
         document.querySelectorAll('.close-modal').forEach(btn => {
             btn.addEventListener('click', function() {
-                const modal = this.closest('.modal');
-                if (modal) {
-                    modal.style.display = 'none';
-                }
+                this.closest('.modal').style.display = 'none';
             });
+        });
+
+        // Cerrar modales al hacer clic fuera
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
         });
     }
 
@@ -400,28 +436,16 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
         document.querySelectorAll('.screen').forEach(screen => {
             screen.classList.remove('active');
         });
-
-        if (screenName === 'login') {
-            elements.loginScreen.classList.add('active');
-        } else if (screenName === 'register') {
-            elements.registerScreen.classList.add('active');
-        } else if (screenName === 'app') {
-            elements.appScreen.classList.add('active');
-        }
+        document.getElementById(screenName + '-screen').classList.add('active');
     }
 
     function showSection(sectionName) {
-        // Mostrar sección
-        elements.contentSections.forEach(section => {
+        document.querySelectorAll('.content-section').forEach(section => {
             section.classList.remove('active');
-            if (section.id === sectionName) {
-                section.classList.add('active');
-            }
         });
+        document.getElementById(sectionName).classList.add('active');
 
-        appState.currentSection = sectionName;
-        
-        // Cargar datos específicos de la sección
+        // Cargar contenido específico de la sección
         switch(sectionName) {
             case 'transcripcion':
                 initializeTranscriptionSection();
@@ -450,41 +474,34 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
         }
     }
 
-    // SISTEMA DE AUTENTICACIÓN
+    // Sistema de autenticación
     function handleLogin(e) {
         e.preventDefault();
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        if (!username || !password) {
-            showNotification('Por favor completa todos los campos', 'error');
-            return;
-        }
-
-        // Buscar usuario en localStorage
-        const userData = JSON.parse(localStorage.getItem(`user_${username}`));
-        
-        if (userData && userData.password === password) {
-            // Login exitoso
+        // Simulación de login
+        if (username && password) {
             appState.currentUser = {
                 username: username,
-                email: userData.email,
-                genres: userData.genres || []
+                email: username + '@ejemplo.com',
+                genres: ['rock', 'grunge'],
+                stats: {
+                    sheetsCreated: 3,
+                    postsMade: 5,
+                    projectsUploaded: 2
+                }
             };
             appState.isLoggedIn = true;
-            appState.userGenres = userData.genres || [];
+            appState.userGenres = ['rock', 'grunge'];
             
-            // Guardar sesión
-            localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
-            
-            // Mostrar aplicación
             showScreen('app');
             updateUIForUser();
             showSection('transcripcion');
             
-            showNotification(`¡Bienvenido de nuevo, ${username}!`, 'success');
+            showNotification('¡Bienvenido de nuevo, ' + username + '!', 'success');
         } else {
-            showNotification('Usuario o contraseña incorrectos', 'error');
+            showNotification('Por favor completa todos los campos', 'error');
         }
     }
 
@@ -493,61 +510,30 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
         const username = document.getElementById('reg-username').value;
         const email = document.getElementById('reg-email').value;
         const password = document.getElementById('reg-password').value;
-        const genreCheckboxes = document.querySelectorAll('input[name="genre"]:checked');
-        
-        const selectedGenres = Array.from(genreCheckboxes).map(cb => cb.value);
+        const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(cb => cb.value);
 
-        // Validaciones
-        if (!username || !email || !password) {
-            showNotification('Por favor completa todos los campos obligatorios', 'error');
-            return;
+        if (username && email && password && selectedGenres.length > 0) {
+            appState.currentUser = {
+                username: username,
+                email: email,
+                genres: selectedGenres,
+                stats: {
+                    sheetsCreated: 0,
+                    postsMade: 0,
+                    projectsUploaded: 0
+                }
+            };
+            appState.isLoggedIn = true;
+            appState.userGenres = selectedGenres;
+            
+            showScreen('app');
+            updateUIForUser();
+            showSection('transcripcion');
+            
+            showNotification('¡Cuenta creada exitosamente!', 'success');
+        } else {
+            showNotification('Por favor completa todos los campos y selecciona al menos un género', 'error');
         }
-
-        if (selectedGenres.length === 0) {
-            showNotification('Por favor selecciona al menos un género musical', 'error');
-            return;
-        }
-
-        // Verificar si el usuario ya existe
-        if (localStorage.getItem(`user_${username}`)) {
-            showNotification('Este nombre de usuario ya está en uso', 'error');
-            return;
-        }
-
-        // Crear usuario
-        const userData = {
-            username: username,
-            email: email,
-            password: password,
-            genres: selectedGenres,
-            joinDate: new Date().toISOString(),
-            stats: {
-                sheetsCreated: 0,
-                postsMade: 0,
-                projectsUploaded: 0
-            }
-        };
-        
-        // Guardar usuario
-        localStorage.setItem(`user_${username}`, JSON.stringify(userData));
-        
-        // Iniciar sesión automáticamente
-        appState.currentUser = {
-            username: username,
-            email: email,
-            genres: selectedGenres,
-            stats: userData.stats
-        };
-        appState.isLoggedIn = true;
-        appState.userGenres = selectedGenres;
-        
-        localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
-        
-        showScreen('app');
-        updateUIForUser();
-        showSection('transcripcion');
-        
-        showNotification('¡Cuenta creada exitosamente!', 'success');
     }
 
     function handleLogout() {
@@ -555,147 +541,75 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
         appState.isLoggedIn = false;
         appState.userGenres = [];
         
-        localStorage.removeItem('currentUser');
-        
         showScreen('login');
-        
-        // Limpiar formularios
-        if (elements.loginForm) elements.loginForm.reset();
-        if (elements.registerForm) elements.registerForm.reset();
-        
         showNotification('Sesión cerrada correctamente', 'info');
     }
 
     function showProfileModal() {
-        const modal = document.getElementById('profile-modal');
-        if (!modal) return;
-
         if (appState.currentUser) {
             document.getElementById('profile-username').textContent = appState.currentUser.username;
             document.getElementById('profile-email').textContent = appState.currentUser.email;
             document.getElementById('profile-avatar-text').textContent = appState.currentUser.username.charAt(0).toUpperCase();
             
-            // Actualizar estadísticas
-            document.getElementById('profile-sheets').textContent = appState.currentUser.stats?.sheetsCreated || 0;
-            document.getElementById('profile-posts').textContent = appState.currentUser.stats?.postsMade || 0;
-            document.getElementById('profile-projects').textContent = appState.currentUser.stats?.projectsUploaded || 0;
+            document.getElementById('profile-sheets').textContent = appState.currentUser.stats.sheetsCreated;
+            document.getElementById('profile-posts').textContent = appState.currentUser.stats.postsMade;
+            document.getElementById('profile-projects').textContent = appState.currentUser.stats.projectsUploaded;
             
-            // Actualizar géneros
             const genresList = document.getElementById('profile-genres-list');
-            if (genresList && appState.userGenres) {
-                genresList.innerHTML = appState.userGenres.map(genre => 
-                    `<span class="genre-tag">${genre}</span>`
-                ).join('');
-            }
+            genresList.innerHTML = appState.userGenres.map(genre => 
+                `<span class="genre-tag">${genre}</span>`
+            ).join('');
         }
         
-        modal.style.display = 'block';
+        document.getElementById('profile-modal').style.display = 'block';
     }
 
     function checkLoginStatus() {
-        const savedUser = localStorage.getItem('currentUser');
-        if (savedUser) {
-            try {
-                const userData = JSON.parse(savedUser);
-                appState.currentUser = userData;
-                appState.isLoggedIn = true;
-                appState.userGenres = userData.genres || [];
-                
-                showScreen('app');
-                updateUIForUser();
-                showSection('transcripcion');
-            } catch (error) {
-                console.error('Error al cargar usuario:', error);
-                localStorage.removeItem('currentUser');
-                showScreen('login');
-            }
-        } else {
-            showScreen('login');
-        }
+        // En una aplicación real, aquí se verificaría el token de sesión
+        // Por ahora, mostramos directamente la pantalla de login
+        showScreen('login');
     }
 
     function updateUIForUser() {
-        if (appState.currentUser && elements.userName) {
-            elements.userName.textContent = appState.currentUser.username;
+        if (appState.currentUser) {
+            document.getElementById('user-name').textContent = appState.currentUser.username;
         }
     }
 
-    // SISTEMA DE TRANSCRIPCIÓN MEJORADO
-    function setupTranscriptionListeners() {
-        const processUrlBtn = document.getElementById('process-url');
-        const audioFileInput = document.getElementById('audio-file');
-        const downloadPdfBtn = document.getElementById('download-pdf');
-        const saveToLibraryBtn = document.getElementById('save-to-library');
-
-        if (processUrlBtn) {
-            processUrlBtn.addEventListener('click', processUrl);
-        }
-
-        if (audioFileInput) {
-            audioFileInput.addEventListener('change', processFile);
-        }
-
-        if (downloadPdfBtn) {
-            downloadPdfBtn.addEventListener('click', downloadPdf);
-        }
-
-        if (saveToLibraryBtn) {
-            saveToLibraryBtn.addEventListener('click', saveToLibrary);
-        }
-    }
-
-    function initializeTranscriptionSection() {
-        // Inicializar con partituras de ejemplo
-        generateSampleSheetMusic();
-    }
-
+    // Sistema de transcripción
     function processUrl() {
-        const urlInput = document.getElementById('song-url');
-        if (!urlInput) return;
-
-        const url = urlInput.value.trim();
+        const url = document.getElementById('song-url').value.trim();
         
         if (!url) {
             showNotification('Por favor ingresa un enlace válido', 'error');
             return;
         }
 
-        if (!isValidUrl(url)) {
-            showNotification('Por favor ingresa un enlace válido de YouTube, Spotify o similar', 'error');
-            return;
-        }
-
         simulateTranscription();
     }
 
-    function processFile(e) {
+    function handleFileSelect(e) {
         const file = e.target.files[0];
-        
-        if (!file) return;
-
-        if (!file.type.startsWith('audio/')) {
-            showNotification('Por favor selecciona un archivo de audio válido', 'error');
-            return;
+        if (file) {
+            document.getElementById('file-name').textContent = 'Archivo seleccionado: ' + file.name;
         }
+    }
 
-        if (file.size > 50 * 1024 * 1024) {
-            showNotification('El archivo es demasiado grande (máximo 50MB)', 'error');
-            return;
+    function handleProjectFileSelect(e) {
+        const file = e.target.files[0];
+        if (file) {
+            document.getElementById('project-file-name').textContent = 'Archivo seleccionado: ' + file.name;
         }
-
-        simulateTranscription();
     }
 
     function simulateTranscription() {
         const processingSection = document.getElementById('processing-section');
         const resultsSection = document.getElementById('results-section');
         
-        if (!processingSection || !resultsSection) return;
-
         processingSection.classList.add('active');
         resultsSection.style.display = 'none';
 
-        // Simular progreso paso a paso
+        // Simular progreso
         const steps = document.querySelectorAll('.processing-steps .step');
         let currentStep = 0;
 
@@ -714,10 +628,9 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                     generateSampleSheetMusic();
                     showNotification('¡Transcripción completada! La IA ha detectado 4 instrumentos', 'success');
                     
-                    // Actualizar estadísticas del usuario
+                    // Actualizar estadísticas
                     if (appState.currentUser) {
                         appState.currentUser.stats.sheetsCreated++;
-                        localStorage.setItem('currentUser', JSON.stringify(appState.currentUser));
                     }
                 }, 1000);
             }
@@ -726,10 +639,6 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
 
     function generateSampleSheetMusic() {
         const tabsContainer = document.querySelector('.instruments-tabs');
-        const sheetContainer = document.querySelector('.sheet-music-container');
-
-        if (!tabsContainer || !sheetContainer) return;
-
         const instruments = [
             { name: 'Guitarra', icon: 'fas fa-guitar', key: 'guitarra' },
             { name: 'Bajo', icon: 'fas fa-guitar', key: 'bajo' },
@@ -752,176 +661,336 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
     }
 
     function switchInstrumentTab(instrumentKey) {
-        const tabs = document.querySelectorAll('.instrument-tab');
-        tabs.forEach(tab => {
+        document.querySelectorAll('.instrument-tab').forEach(tab => {
             tab.classList.toggle('active', tab.getAttribute('data-instrument') === instrumentKey);
         });
-        
         showInstrumentSheet(instrumentKey);
     }
 
     function showInstrumentSheet(instrumentKey) {
         const sheetContainer = document.querySelector('.sheet-music-container');
-        if (!sheetContainer || !comeAsYouAreSheets[instrumentKey]) return;
-
-        const sheet = comeAsYouAreSheets[instrumentKey];
-        sheetContainer.innerHTML = sheet.content;
-        
-        // Agregar estilos para las partituras
-        addSheetMusicStyles();
-    }
-
-    function addSheetMusicStyles() {
-        if (!document.getElementById('sheet-music-styles')) {
-            const style = document.createElement('style');
-            style.id = 'sheet-music-styles';
-            style.textContent = `
-                .tablature, .drum-notation, .vocal-notation {
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 8px;
-                    padding: 1rem;
-                    margin: 1rem 0;
-                    font-family: 'Courier New', monospace;
-                    font-size: 14px;
-                    line-height: 1.4;
-                }
-                
-                .guitar-tab, .bass-tab, .drum-tab {
-                    color: var(--accent);
-                    margin: 0.5rem 0;
-                }
-                
-                .tab-note {
-                    color: var(--light);
-                    font-style: italic;
-                    font-size: 12px;
-                }
-                
-                .tab-section, .notation-section, .vocal-section {
-                    margin-bottom: 1.5rem;
-                    padding-bottom: 1rem;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                }
-                
-                .tab-section h5, .notation-section h5, .vocal-section h5 {
-                    color: var(--accent);
-                    margin-bottom: 0.5rem;
-                }
-                
-                .playing-tips, .vocal-tips, .drum-legend {
-                    background: rgba(76, 201, 240, 0.1);
-                    border-radius: 8px;
-                    padding: 1rem;
-                    margin: 1rem 0;
-                }
-                
-                .playing-tips h5, .vocal-tips h5, .drum-legend h5 {
-                    color: var(--accent);
-                    margin-bottom: 0.5rem;
-                }
-                
-                .playing-tips ul, .vocal-tips ul, .drum-legend ul {
-                    margin: 0;
-                    padding-left: 1.5rem;
-                }
-                
-                .playing-tips li, .vocal-tips li, .drum-legend li {
-                    margin-bottom: 0.25rem;
-                }
-                
-                .vocal-line {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: 0.5rem;
-                    padding: 0.5rem;
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 4px;
-                }
-                
-                .lyrics {
-                    color: white;
-                    font-weight: 500;
-                }
-                
-                .notes {
-                    color: var(--accent);
-                    font-family: 'Courier New', monospace;
-                }
-                
-                .song-structure {
-                    background: rgba(255, 255, 255, 0.05);
-                    border-radius: 8px;
-                    padding: 1rem;
-                    margin-top: 1rem;
-                }
-                
-                .song-structure h5 {
-                    color: var(--accent);
-                    margin-bottom: 0.5rem;
-                }
-                
-                .song-structure ol {
-                    margin: 0;
-                    padding-left: 1.5rem;
-                }
-                
-                .song-structure li {
-                    margin-bottom: 0.5rem;
-                }
-            `;
-            document.head.appendChild(style);
+        if (comeAsYouAreSheets[instrumentKey]) {
+            sheetContainer.innerHTML = comeAsYouAreSheets[instrumentKey].content;
         }
     }
 
     function downloadPdf() {
         showNotification('Generando y descargando partitura en formato PDF...', 'info');
-        
         setTimeout(() => {
             showNotification('¡PDF descargado correctamente!', 'success');
         }, 2000);
     }
 
     function saveToLibrary() {
-        if (!appState.currentUser) return;
+        if (!appState.currentUser) {
+            showNotification('Debes iniciar sesión para guardar en la biblioteca', 'error');
+            return;
+        }
 
         const songData = {
             id: Date.now(),
             title: 'Come As You Are',
             artist: 'Nirvana',
             instruments: ['guitarra', 'bajo', 'bateria', 'voz'],
-            dateAdded: new Date().toISOString(),
-            sheets: comeAsYouAreSheets
+            dateAdded: new Date().toISOString()
         };
 
-        // Agregar a la biblioteca del usuario
         appState.library.push(songData);
-        saveLibraryToStorage();
-        
         showNotification('¡Partitura guardada en tu biblioteca!', 'success');
     }
 
-    // SISTEMA DE BIBLIOTECA
-    function setupLibraryListeners() {
-        const genreFilter = document.getElementById('library-genre-filter');
-        const instrumentFilter = document.getElementById('library-instrument-filter');
+    // Sistema de práctica
+    function initializePracticeTools() {
+        updateBPM();
+    }
 
-        if (genreFilter) {
-            genreFilter.addEventListener('change', loadLibrary);
-        }
-
-        if (instrumentFilter) {
-            instrumentFilter.addEventListener('change', loadLibrary);
+    function toggleMetronome() {
+        const button = document.getElementById('metronome-toggle');
+        appState.practiceTools.metronome.active = !appState.practiceTools.metronome.active;
+        
+        if (appState.practiceTools.metronome.active) {
+            button.innerHTML = '<i class="fas fa-stop"></i> Detener';
+            button.classList.add('active');
+            startMetronome();
+            showNotification('Metrónomo iniciado a ' + appState.practiceTools.metronome.bpm + ' BPM', 'info');
+        } else {
+            button.innerHTML = '<i class="fas fa-play"></i> Iniciar';
+            button.classList.remove('active');
+            stopMetronome();
+            showNotification('Metrónomo detenido', 'info');
         }
     }
 
+    function startMetronome() {
+        const beats = document.querySelectorAll('.beat');
+        let currentBeat = 0;
+        
+        appState.practiceTools.metronome.interval = setInterval(() => {
+            beats.forEach(beat => beat.classList.remove('active'));
+            beats[currentBeat].classList.add('active');
+            currentBeat = (currentBeat + 1) % beats.length;
+        }, 60000 / appState.practiceTools.metronome.bpm);
+    }
+
+    function stopMetronome() {
+        if (appState.practiceTools.metronome.interval) {
+            clearInterval(appState.practiceTools.metronome.interval);
+            document.querySelectorAll('.beat').forEach(beat => beat.classList.remove('active'));
+        }
+    }
+
+    function updateBPM() {
+        const slider = document.getElementById('bpm-slider');
+        const value = document.getElementById('bpm-value');
+        const bpm = parseInt(slider.value);
+        appState.practiceTools.metronome.bpm = bpm;
+        value.textContent = bpm;
+        
+        // Reiniciar metrónomo si está activo
+        if (appState.practiceTools.metronome.active) {
+            stopMetronome();
+            startMetronome();
+        }
+    }
+
+    function toggleTuner() {
+        const button = document.getElementById('tuner-toggle');
+        appState.practiceTools.tuner.active = !appState.practiceTools.tuner.active;
+        
+        if (appState.practiceTools.tuner.active) {
+            button.innerHTML = '<i class="fas fa-stop"></i> Detener Afinador';
+            button.classList.add('active');
+            showNotification('Afinador activado - Toca una cuerda', 'info');
+        } else {
+            button.innerHTML = '<i class="fas fa-microphone"></i> Iniciar Afinador';
+            button.classList.remove('active');
+            showNotification('Afinador desactivado', 'info');
+        }
+    }
+
+    function toggleRhythmTrainer() {
+        const button = document.getElementById('rhythm-toggle');
+        appState.practiceTools.rhythm.active = !appState.practiceTools.rhythm.active;
+        
+        if (appState.practiceTools.rhythm.active) {
+            button.innerHTML = '<i class="fas fa-stop"></i> Detener';
+            button.classList.add('active');
+            startRhythmTrainer();
+            showNotification('Entrenador de ritmo iniciado', 'info');
+        } else {
+            button.innerHTML = '<i class="fas fa-play"></i> Practicar';
+            button.classList.remove('active');
+            stopRhythmTrainer();
+            showNotification('Entrenador de ritmo detenido', 'info');
+        }
+    }
+
+    function startRhythmTrainer() {
+        const visualizers = document.querySelectorAll('.beat-visual');
+        let currentBeat = 0;
+        
+        appState.practiceTools.rhythm.interval = setInterval(() => {
+            visualizers.forEach(v => v.classList.remove('active'));
+            visualizers[currentBeat].classList.add('active');
+            currentBeat = (currentBeat + 1) % visualizers.length;
+        }, 60000 / 120); // 120 BPM
+    }
+
+    function stopRhythmTrainer() {
+        if (appState.practiceTools.rhythm.interval) {
+            clearInterval(appState.practiceTools.rhythm.interval);
+            document.querySelectorAll('.beat-visual').forEach(v => v.classList.remove('active'));
+        }
+    }
+
+    // Sistema de comunidad
+    function handleNewPost(e) {
+        e.preventDefault();
+        const title = document.getElementById('post-title').value;
+        const category = document.getElementById('post-category').value;
+        const content = document.getElementById('post-content').value;
+
+        if (containsOffensiveLanguage(content)) {
+            showNotification('Tu mensaje contiene lenguaje inapropiado y no puede ser publicado', 'error');
+            return;
+        }
+
+        const newPost = {
+            id: Date.now(),
+            title: title,
+            category: category,
+            content: content,
+            author: appState.currentUser.username,
+            date: new Date().toISOString(),
+            likes: 0,
+            comments: 0
+        };
+
+        appState.posts.unshift(newPost);
+        document.getElementById('new-post-modal').style.display = 'none';
+        e.target.reset();
+        
+        loadCommunityPosts();
+        showNotification('¡Mensaje publicado exitosamente!', 'success');
+        
+        // Actualizar estadísticas
+        if (appState.currentUser) {
+            appState.currentUser.stats.postsMade++;
+        }
+    }
+
+    function containsOffensiveLanguage(text) {
+        const offensiveWords = ['idiota', 'estúpido', 'imbécil', 'tonto', 'puta', 'cabrón'];
+        const lowerText = text.toLowerCase();
+        return offensiveWords.some(word => lowerText.includes(word));
+    }
+
+    function loadCommunityPosts() {
+        const postsContainer = document.getElementById('posts-container');
+        
+        if (appState.posts.length === 0) {
+            // Posts de ejemplo
+            postsContainer.innerHTML = `
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <div class="avatar">M</div>
+                            <div class="author-info">
+                                <span class="author-name">María García</span>
+                                <span class="post-date">Hace 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="post-category">
+                            <span class="category-tag">Guitarra</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>¿Alguien tiene consejos para mejorar el fingerpicking?</h3>
+                        <p>Estoy aprendiendo fingerpicking y me cuesta mantener un patrón constante con la mano derecha. ¿Algún ejercicio que recomienden para mejorar la independencia de los dedos?</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-actions">
+                            <button class="action-btn"><i class="far fa-thumbs-up"></i> 12</button>
+                            <button class="action-btn"><i class="far fa-comment"></i> 5</button>
+                            <button class="action-btn"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            postsContainer.innerHTML = appState.posts.map(post => `
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <div class="avatar">${post.author.charAt(0)}</div>
+                            <div class="author-info">
+                                <span class="author-name">${post.author}</span>
+                                <span class="post-date">${formatDate(post.date)}</span>
+                            </div>
+                        </div>
+                        <div class="post-category">
+                            <span class="category-tag">${post.category}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>${post.title}</h3>
+                        <p>${post.content}</p>
+                    </div>
+                    <div class="post-footer">
+                        <div class="post-actions">
+                            <button class="action-btn"><i class="far fa-thumbs-up"></i> ${post.likes}</button>
+                            <button class="action-btn"><i class="far fa-comment"></i> ${post.comments}</button>
+                            <button class="action-btn"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // Sistema de proyectos
+    function handleProjectUpload(e) {
+        e.preventDefault();
+        const title = document.getElementById('project-title').value;
+        const description = document.getElementById('project-description').value;
+        const genre = document.getElementById('project-genre').value;
+
+        const newProject = {
+            id: Date.now(),
+            title: title,
+            description: description,
+            genre: genre,
+            author: appState.currentUser.username,
+            date: new Date().toISOString(),
+            rating: (4 + Math.random()).toFixed(1)
+        };
+
+        appState.projects.unshift(newProject);
+        document.getElementById('upload-project-modal').style.display = 'none';
+        e.target.reset();
+        document.getElementById('project-file-name').textContent = '';
+        
+        loadProjects();
+        showNotification('¡Proyecto subido exitosamente!', 'success');
+        
+        // Actualizar estadísticas
+        if (appState.currentUser) {
+            appState.currentUser.stats.projectsUploaded++;
+        }
+    }
+
+    function loadProjects() {
+        const projectsGrid = document.getElementById('projects-grid');
+        
+        if (appState.projects.length === 0) {
+            // Proyectos de ejemplo
+            projectsGrid.innerHTML = `
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Amanecer en Re</h3>
+                        <p class="project-author">Por: Ana Martínez</p>
+                        <p class="project-description">Composición acústica para guitarra y violín inspirada en los amaneceres de montaña.</p>
+                        <div class="project-meta">
+                            <span class="project-genre">Acústico</span>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else {
+            projectsGrid.innerHTML = appState.projects.map(project => `
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>${project.title}</h3>
+                        <p class="project-author">Por: ${project.author}</p>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-meta">
+                            <span class="project-genre">${project.genre}</span>
+                            <div class="project-rating">
+                                <i class="fas fa-star"></i>
+                                <span>${project.rating}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+
+    // Otras secciones
     function loadLibrary() {
-        const libraryGrid = document.querySelector('.library-grid');
-        if (!libraryGrid) return;
-
-        loadLibraryFromStorage();
-
+        const libraryGrid = document.getElementById('library-grid');
+        
         if (appState.library.length === 0) {
-            // Mostrar biblioteca de ejemplo
             libraryGrid.innerHTML = `
                 <div class="library-item">
                     <div class="item-header">
@@ -936,25 +1005,7 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                         <span class="instrument-tag">Voz</span>
                     </div>
                     <div class="item-actions">
-                        <button class="btn-primary" onclick="openSheetFromLibrary('Come As You Are')">Abrir</button>
-                        <button class="btn-secondary">
-                            <i class="fas fa-download"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="library-item">
-                    <div class="item-header">
-                        <h4>Smells Like Teen Spirit</h4>
-                        <span class="item-badge">Guardada</span>
-                    </div>
-                    <p class="item-artist">Nirvana</p>
-                    <div class="item-instruments">
-                        <span class="instrument-tag">Guitarra</span>
-                        <span class="instrument-tag">Batería</span>
-                    </div>
-                    <div class="item-actions">
-                        <button class="btn-primary">Abrir</button>
+                        <button class="btn-primary" onclick="app.showInstrumentSheet('guitarra')">Abrir</button>
                         <button class="btn-secondary">
                             <i class="fas fa-download"></i>
                         </button>
@@ -962,7 +1013,6 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                 </div>
             `;
         } else {
-            // Mostrar biblioteca real del usuario
             libraryGrid.innerHTML = appState.library.map(item => `
                 <div class="library-item">
                     <div class="item-header">
@@ -976,7 +1026,7 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
                         ).join('')}
                     </div>
                     <div class="item-actions">
-                        <button class="btn-primary" onclick="openSheetFromLibrary('${item.title}')">Abrir</button>
+                        <button class="btn-primary" onclick="app.showInstrumentSheet('guitarra')">Abrir</button>
                         <button class="btn-secondary">
                             <i class="fas fa-download"></i>
                         </button>
@@ -986,67 +1036,241 @@ R|--xxxx----------|      TOM1 |--------xxxx----|
         }
     }
 
-    // SISTEMA DE PRÁCTICA
-    function setupPracticeListeners() {
-        const metronomeToggle = document.getElementById('metronome-toggle');
-        const bpmSlider = document.getElementById('bpm-slider');
-        const tunerToggle = document.getElementById('tuner-toggle');
-        const rhythmToggle = document.getElementById('rhythm-toggle');
-
-        if (metronomeToggle) {
-            metronomeToggle.addEventListener('click', toggleMetronome);
-        }
-
-        if (bpmSlider) {
-            bpmSlider.addEventListener('input', updateBPM);
-        }
-
-        if (tunerToggle) {
-            tunerToggle.addEventListener('click', toggleTuner);
-        }
-
-        if (rhythmToggle) {
-            rhythmToggle.addEventListener('click', toggleRhythmTrainer);
-        }
+    function loadCourses() {
+        const coursesGrid = document.getElementById('courses-grid');
+        coursesGrid.innerHTML = `
+            <div class="course-card">
+                <div class="course-image">
+                    <i class="fas fa-guitar"></i>
+                </div>
+                <div class="course-info">
+                    <h3>Guitarra para Principiantes</h3>
+                    <p>Aprende acordes, ritmos y técnicas básicas desde cero</p>
+                    <div class="course-meta">
+                        <span class="course-level">Principiante</span>
+                        <span class="course-duration">12 lecciones</span>
+                    </div>
+                    <button class="btn-primary">Comenzar Curso</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-image">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="course-info">
+                    <h3>Teoría Musical Esencial</h3>
+                    <p>Domina escalas, acordes y progresiones armónicas</p>
+                    <div class="course-meta">
+                        <span class="course-level">Intermedio</span>
+                        <span class="course-duration">8 lecciones</span>
+                    </div>
+                    <button class="btn-primary">Comenzar Curso</button>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-image">
+                    <i class="fas fa-drum"></i>
+                </div>
+                <div class="course-info">
+                    <h3>Batería: Ritmos de Rock</h3>
+                    <p>Patrones esenciales y técnicas para bateristas</p>
+                    <div class="course-meta">
+                        <span class="course-level">Principiante</span>
+                        <span class="course-duration">10 lecciones</span>
+                    </div>
+                    <button class="btn-primary">Comenzar Curso</button>
+                </div>
+            </div>
+        `;
     }
 
-    function initializePracticeTools() {
-        updateBPM();
+    function loadRankings() {
+        const rankingList = document.getElementById('ranking-list');
+        const rankings = [
+            { position: 1, title: 'Come As You Are', artist: 'Nirvana', searches: 1245, rating: 4.8 },
+            { position: 2, title: 'Smells Like Teen Spirit', artist: 'Nirvana', searches: 987, rating: 4.7 },
+            { position: 3, title: 'Sweet Child O\' Mine', artist: 'Guns N\' Roses', searches: 856, rating: 4.6 },
+            { position: 4, title: 'Hotel California', artist: 'Eagles', searches: 743, rating: 4.9 },
+            { position: 5, title: 'Stairway to Heaven', artist: 'Led Zeppelin', searches: 689, rating: 4.9 }
+        ];
+
+        rankingList.innerHTML = rankings.map(song => `
+            <div class="ranking-item">
+                <div class="ranking-position">${song.position}</div>
+                <div class="ranking-info">
+                    <h3>${song.title}</h3>
+                    <p>${song.artist}</p>
+                </div>
+                <div class="ranking-stats">
+                    <div class="stat">
+                        <i class="fas fa-search"></i>
+                        <span>${song.searches} búsquedas</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-star"></i>
+                        <span>${song.rating}</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        // Event listeners para pestañas de ranking
+        document.querySelectorAll('.ranking-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.ranking-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                // En una app real, aquí se cargarían datos diferentes según la pestaña
+            });
+        });
     }
 
-    function toggleMetronome() {
-        const button = document.getElementById('metronome-toggle');
-        appState.practiceTools.metronome.active = !appState.practiceTools.metronome.active;
+    function loadRecommendations() {
+        // Actualizar géneros del usuario
+        const userGenresList = document.getElementById('user-genres-list');
+        if (appState.userGenres && appState.userGenres.length > 0) {
+            userGenresList.innerHTML = appState.userGenres.map(genre => 
+                `<span class="genre-tag">${genre}</span>`
+            ).join('');
+        }
+
+        // Recomendaciones de partituras
+        document.getElementById('recommended-sheets').innerHTML = `
+            <div class="recommendation-card">
+                <div class="card-icon">
+                    <i class="fas fa-guitar"></i>
+                </div>
+                <div class="card-content">
+                    <h4>Smells Like Teen Spirit</h4>
+                    <p>Nirvana - Guitarra eléctrica</p>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.7</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="recommendation-card">
+                <div class="card-icon">
+                    <i class="fas fa-drum"></i>
+                </div>
+                <div class="card-content">
+                    <h4>Enter Sandman</h4>
+                    <p>Metallica - Batería completa</p>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.6</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Recomendaciones de proyectos
+        document.getElementById('recommended-projects').innerHTML = `
+            <div class="recommendation-card">
+                <div class="card-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="card-content">
+                    <h4>Neon Dreams</h4>
+                    <p>Por: SynthWavePro - Electrónica</p>
+                    <div class="card-rating">
+                        <i class="fas fa-star"></i>
+                        <span>4.5</span>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Recomendaciones de posts
+        document.getElementById('recommended-posts').innerHTML = `
+            <div class="recommendation-card">
+                <div class="card-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="card-content">
+                    <h4>Mejores amplificadores para rock</h4>
+                    <p>45 respuestas - Guitarra</p>
+                    <div class="card-meta">
+                        <i class="far fa-eye"></i>
+                        <span>320</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function initializeTranscriptionSection() {
+        // Inicializar con partituras de ejemplo
+        generateSampleSheetMusic();
+    }
+
+    // Utilidades
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMs / 3600000);
+        const diffDays = Math.floor(diffMs / 86400000);
+
+        if (diffMins < 1) return 'Hace un momento';
+        if (diffMins < 60) return `Hace ${diffMins} minutos`;
+        if (diffHours < 24) return `Hace ${diffHours} horas`;
+        if (diffDays === 1) return 'Ayer';
+        if (diffDays < 7) return `Hace ${diffDays} días`;
         
-        if (appState.practiceTools.metronome.active) {
-            button.innerHTML = '<i class="fas fa-stop"></i> Detener';
-            button.classList.add('active');
-            showNotification('Metrónomo iniciado a ' + appState.practiceTools.metronome.bpm + ' BPM', 'info');
-        } else {
-            button.innerHTML = '<i class="fas fa-play"></i> Iniciar';
-            button.classList.remove('active');
-            showNotification('Metrónomo detenido', 'info');
-        }
+        return date.toLocaleDateString('es-ES');
     }
 
-    function updateBPM() {
-        const slider = document.getElementById('bpm-slider');
-        const value = document.getElementById('bpm-value');
-        
-        if (slider && value) {
-            const bpm = parseInt(slider.value);
-            appState.practiceTools.metronome.bpm = bpm;
-            value.textContent = bpm;
-        }
+    function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${getNotificationIcon(type)}"></i>
+                <span>${message}</span>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.style.animation = 'slideOutRight 0.3s ease';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 4000);
     }
 
-    function toggleTuner() {
-        const button = document.getElementById('tuner-toggle');
-        appState.practiceTools.tuner.active = !appState.practiceTools.tuner.active;
+    function getNotificationIcon(type) {
+        const icons = {
+            success: 'check-circle',
+            error: 'exclamation-circle',
+            info: 'info-circle',
+            warning: 'exclamation-triangle'
+        };
+        return icons[type] || 'info-circle';
+    }
+
+    function loadSampleData() {
+        // Datos de ejemplo para la aplicación
+        appState.posts = [];
+        appState.projects = [];
+        appState.library = [];
         
-        if (appState.practiceTools.tuner.active) {
-            button.innerHTML = '<i class="fas fa-stop"></i> Detener Afinador';
-            button.classList.add('active');
-            showNotification('Afinador activado - Habla o toca una nota', 'info');
-        } else {
-            button.innerHTML = '<i class="fas fa-microphone"></i
+        // Rankings de ejemplo
+        appState.rankings.weekly = [
+            { position: 1, title: 'Come As You Are', artist: 'Nirvana', searches: 1245, rating: 4.8 },
+            { position: 2, title: 'Smells Like Teen Spirit', artist: 'Nirvana', searches: 987, rating: 4.7 }
+        ];
+    }
+
+    // Hacer funciones disponibles globalmente para los event listeners en HTML
+    window.app = {
+        showInstrumentSheet: showInstrumentSheet
+    };
+});
