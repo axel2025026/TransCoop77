@@ -1,0 +1,301 @@
+/* Estilos para nuevas secciones */
+
+/* Biblioteca */
+.library-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.library-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.library-controls .search-box {
+    min-width: 300px;
+}
+
+.filter-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-options select {
+    min-width: 150px;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.library-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.library-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.item-header h4 {
+    margin: 0;
+    color: white;
+}
+
+.item-badge {
+    background: var(--success);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.item-artist {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.item-instruments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.instrument-tag {
+    background: rgba(76, 201, 240, 0.2);
+    color: var(--accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+.item-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.item-actions .btn-primary {
+    flex: 1;
+}
+
+.item-actions .btn-secondary {
+    padding: 0.5rem;
+    min-width: auto;
+}
+
+/* Práctica */
+.practice-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.practice-tools {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.tool-card h3 {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.tool-card p {
+    color: var(--light);
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Metrónomo */
+.metronome-controls {
+    text-align: center;
+}
+
+.bpm-control {
+    margin-bottom: 1rem;
+}
+
+.bpm-control label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light);
+}
+
+.bpm-control input {
+    width: 100%;
+}
+
+/* Afinador */
+.tuner {
+    text-align: center;
+}
+
+.tuner-display {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tuner-note {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.tuner-frequency {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.tuner-indicator {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.indicator-bar {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background: var(--accent);
+    border-radius: 2px;
+    animation: tunerPulse 2s infinite;
+}
+
+@keyframes tunerPulse {
+    0%, 100% { transform: translateX(-25%); }
+    50% { transform: translateX(75%); }
+}
+
+/* Entrenador de Ritmo */
+.rhythm-trainer {
+    text-align: center;
+}
+
+.rhythm-patterns {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.pattern {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.pattern:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.pattern.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Cursos */
+.courses-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.course-image {
+    height: 120px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-image i {
+    font-size: 3rem;
+    color: white;
+}
+
+.course-info {
+    padding: 1.5rem;
+}
+
+.course-info h3 {
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.course
